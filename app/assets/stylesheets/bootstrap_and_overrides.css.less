@@ -1,48 +1,59 @@
 @import "twitter/bootstrap/bootstrap";
 
-// Set the correct sprite paths
-@iconSpritePath: image-url("twitter/bootstrap/glyphicons-halflings.png");
-@iconWhiteSpritePath: image-url("twitter/bootstrap/glyphicons-halflings-white.png");
-
-// Set the Font Awesome (Font Awesome is default. You can disable by commenting below lines)
-@fontAwesomeEotPath: font-url("fontawesome-webfont.eot");
-@fontAwesomeEotPath_iefix: font-url("fontawesome-webfont.eot?#iefix");
-@fontAwesomeWoffPath: font-url("fontawesome-webfont.woff");
-@fontAwesomeTtfPath: font-url("fontawesome-webfont.ttf");
-@fontAwesomeSvgPath: font-url("fontawesome-webfont.svg#fontawesomeregular");
-
-// Font Awesome
-@import "fontawesome/font-awesome";
-
+// colors
 @body-bg: #fff;
-
 @main-color: #5bc6d1;
+@gray: #878787;
+@light-gray: #dfdfdf;
 
+// fonts
 @font-family-sans-serif: "Avenir";
 @font-family-base: @font-family-sans-serif;
 
-.side-div {
+@media (min-width: 800px) { // web
+	.web-container {
+		display: block;
+	}
+	.mobile-container {
+		display: none;
+	}
+}
+
+@media (max-width: 799px) { // web
+	.web-container {
+		display: none;
+	}
+	.mobile-container {
+		display: block;
+	}
+}
+
+.web-side-div {
 	background-color: @main-color;
-	position: absolute;
+	position: fixed;
 	top: 0;
 	bottom: 0;
 	width: 525px;
+	height: 100%;
 }
 
-.content-div {
+.web-content-div {
 	z-index: 3000;
-	position: absolute;
+	position: fixed;
 	left: 525px;
 	top: 0;
 	bottom: 0;
 	background: #fff;
-	.content-div-inner {
+	.web-content-div-inner {
 		margin-top: 105px;
 		margin-left: 53px;
+		overflow-y: scroll;
+		height: 80%;
+		width: 100%;
 	}	
 }
 
-.email-container {
+.web-email-container {
 	margin-left: 63px;
 	background-color: #F4F4F4;
 	padding-top: 40px;
@@ -54,42 +65,183 @@
 		font-size: 22px;
 	}
 	form {
+		font-size: 20px;
 		.form-group {
 			height: 55px;
 			.email {
-				font-size: 20px;
 				height: 100%;
+				border: 1px solid #d3d3d3;
+				padding: 20px;
 			}
 			.button {
 				height: 100%;
+				background-color: #000000;
+				border: none;
+				width: 150px;
+				text-transform: uppercase;
+				text-align: center;
+				margin-left: -6px;
+				font-size: 15px;
+				font-weight: bold;
+				color: #ffffff;
+				padding-top: 6px;
 			}
+		}
+		::-webkit-input-placeholder {
+		   color: @light-gray;
+		   font-weight: lighter;
+		}
+		:-moz-placeholder { /* Firefox 18- */
+		   color: @light-gray;
+		   font-weight: lighter;
+		}
+		::-moz-placeholder {  /* Firefox 19+ */
+		   color: @light-gray;  
+		   font-weight: lighter;
 		}
 	}
 }
 
-.melt-icon-web {
-	position: absolute;
-	top: 184px;
+.web-melt-icon {
+	position: fixed;
 	left: 364px;
 	width: 91px;
 	z-index: 2000;
 }
-
-.melt-hand-model {
-	height: 815px;
-	position: absolute;
-	bottom: 0;
+	
+.web-melt-hand-model {
 	left: 50px;
 	z-index: 1000;
+	height: 815px;
+	position: fixed;
 }
 
-.melt-phone-screen-web-container {
+.web-melt-phone-screen-container {
 	width: 250px;
 	z-index: 1001;
-	position: absolute;
-	bottom: 307px;
+	position: fixed;
 	left: 137px;
-	.melt-phone-screen-web {
+	.web-melt-phone-screen {
 		width: 250px;
+	}
+}
+
+.web-melt-text {
+	color: @main-color;
+	font-size: 24px;
+	text-transform: uppercase;
+	font-weight: bold;
+	line-height: 27px;
+	margin-bottom: 20px;
+}
+
+.web-inspiration-text {
+	color: #242424;
+	font-size: 50px;
+	line-height: 56px;
+	font-weight: bold;
+	margin-bottom: 0;
+	margin-top: 0;
+}
+
+.web-inspiration-sub-text {
+	color: @gray;
+	font-size: 24px;
+	font-weight: lighter;
+	margin-top: 15px;
+	margin-bottom: 97px;
+}
+
+.web-videos-text {
+	color: @gray;
+	font-size: 22px;
+	font-weight: lighter;
+	margin-left: 190px;
+	margin-top: 138px;
+}
+
+@media (max-height: 875px) { // web, laptop
+	.web-melt-hand-model {
+		top: 60px;
+	}
+	.web-melt-phone-screen-container {
+		top: 125px;
+	}
+	.web-melt-icon {
+		top: 184px;
+	}
+}
+
+@media (min-height: 876px) { // web, desktop
+	.web-melt-hand-model {
+		bottom: 0;
+	}
+	.web-melt-phone-screen-container {
+		bottom: 305px;
+	}
+	.web-melt-icon {
+		bottom: 599px;
+	}
+}
+
+.mobile-inspiration-container {
+	padding-left: 38px;
+	padding-right: 38px;
+	padding-top: 76px;
+	padding-bottom: 100px;
+}
+
+.mobile-melt-text {
+	color: @main-color;
+	font-size: 28px;
+	text-transform: uppercase;
+	font-weight: bold;
+	line-height: 31px;
+	margin-bottom: 20px;
+}
+
+.mobile-inspiration-text {
+	color: #242424;
+	font-size: 70px;
+	line-height: 80px;
+	font-weight: bold;
+	margin-bottom: 0;
+	margin-top: 0;
+}
+
+.mobile-inspiration-sub-text {
+	color: @gray;
+	font-size: 40px;
+	font-weight: lighter;
+	margin-top: 15px;
+	margin-bottom: 105px;
+}
+
+.mobile-phone-container {
+	background-color: @main-color;
+	width: 100%;
+}
+
+.mobile-melt-icon {
+	z-index: 2000;
+}
+	
+.mobile-melt-hand-model {
+	z-index: 1000;
+	height: 1122px;
+	margin-left: 70px;
+	margin-right: -160px;
+	margin-bottom: -180px;
+}
+
+.mobile-videos-container {
+	background-color: #ffffff;
+	height: 500px;
+	z-index: 3000;
+	.mobile-videos-container-inner {
+		height: 100%;
+		width: 100%;
+		z-index: 4000;
+		background-color: #ffffff;
 	}
 }

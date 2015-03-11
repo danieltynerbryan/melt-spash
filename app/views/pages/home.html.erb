@@ -1,27 +1,31 @@
-<div class="side-div">
-	<%= image_tag('melt_icon.png', class: 'melt-icon-web') %>
-	<%= image_tag('melt_hand_model.png', class: 'melt-hand-model') %>
-	<div class="melt-phone-screen-web-container">
-		<div id="carousel-example-generic" class="carousel slide" data-ride="carousel" data-interval="1500">
-			<div class="carousel-inner" role="listbox">
-				<div class="item active">
-					<%= image_tag('scroll_1.jpg', class: 'melt-phone-screen-web') %>
-				</div>
-				<div class="item">
-					<%= image_tag('scroll_2.jpg', class: 'melt-phone-screen-web') %>
-				</div>
-				<div class="item">
-					<%= image_tag('scroll_3.jpg', class: 'melt-phone-screen-web') %>
-				</div>
-			</div>
+<div class="web-container hidden-xs">
+
+	<div class="web-side-div">
+		<%= render 'web_phone' %>
+	</div>
+	
+	<div class="web-content-div">
+		<div class="web-content-div-inner">
+			<%= render 'web_main_text' %>
+			<%= render 'web_email' %>
+			<%= render 'web_videos' %>
 		</div>
 	</div>
+	
 </div>
 
-<div class="content-div">
-	<div class="content-div-inner">
+<div class="mobile-container">
 	
-		<%= render 'email' %>
-		
+	<div class="mobile-inspiration-container">
+		<%= render 'mobile_main_text' %>
 	</div>
+	
+	<div class="mobile-phone-container">
+		<%= render 'mobile_phone' %>
+	</div>
+	
+	<div class="mobile-videos-container">
+		<%= render 'mobile_videos' %>
+	</div>
+	
 </div>

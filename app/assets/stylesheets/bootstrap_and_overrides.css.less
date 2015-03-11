@@ -1,0 +1,95 @@
+@import "twitter/bootstrap/bootstrap";
+
+// Set the correct sprite paths
+@iconSpritePath: image-url("twitter/bootstrap/glyphicons-halflings.png");
+@iconWhiteSpritePath: image-url("twitter/bootstrap/glyphicons-halflings-white.png");
+
+// Set the Font Awesome (Font Awesome is default. You can disable by commenting below lines)
+@fontAwesomeEotPath: font-url("fontawesome-webfont.eot");
+@fontAwesomeEotPath_iefix: font-url("fontawesome-webfont.eot?#iefix");
+@fontAwesomeWoffPath: font-url("fontawesome-webfont.woff");
+@fontAwesomeTtfPath: font-url("fontawesome-webfont.ttf");
+@fontAwesomeSvgPath: font-url("fontawesome-webfont.svg#fontawesomeregular");
+
+// Font Awesome
+@import "fontawesome/font-awesome";
+
+@body-bg: #fff;
+
+@main-color: #5bc6d1;
+
+@font-family-sans-serif: "Avenir";
+@font-family-base: @font-family-sans-serif;
+
+.side-div {
+	background-color: @main-color;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	width: 525px;
+}
+
+.content-div {
+	z-index: 3000;
+	position: absolute;
+	left: 525px;
+	top: 0;
+	bottom: 0;
+	background: #fff;
+	.content-div-inner {
+		margin-top: 105px;
+		margin-left: 53px;
+	}	
+}
+
+.email-container {
+	margin-left: 63px;
+	background-color: #F4F4F4;
+	padding-top: 40px;
+	padding-left: 57px;
+	padding-right: 57px;
+	padding-bottom: 60px;
+	p {
+		text-align: center;
+		font-size: 22px;
+	}
+	form {
+		.form-group {
+			height: 55px;
+			.email {
+				font-size: 20px;
+				height: 100%;
+			}
+			.button {
+				height: 100%;
+			}
+		}
+	}
+}
+
+.melt-icon-web {
+	position: absolute;
+	top: 184px;
+	left: 364px;
+	width: 91px;
+	z-index: 2000;
+}
+
+.melt-hand-model {
+	height: 815px;
+	position: absolute;
+	bottom: 0;
+	left: 50px;
+	z-index: 1000;
+}
+
+.melt-phone-screen-web-container {
+	width: 250px;
+	z-index: 1001;
+	position: absolute;
+	bottom: 307px;
+	left: 137px;
+	.melt-phone-screen-web {
+		width: 250px;
+	}
+}

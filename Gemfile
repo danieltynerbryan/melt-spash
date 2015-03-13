@@ -51,3 +51,5 @@ group :development, :test do
   gem 'spring'
 end
 
+gem 'simple-line-icons-rails'
+

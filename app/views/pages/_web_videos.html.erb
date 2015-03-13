@@ -1,23 +1,97 @@
 <p class="web-videos-text">Videos created with Melt</p>
 
-<div class="web-video-player-row">
-	<div>
-		<%= video_tag(["https://igcdn-videos-f-8-a.akamaihd.net/hphotos-ak-xaf1/t50.2886-16/10814845_1579793458935308_557263697_n.mp4"], :size => "300x300", :controls => true, :poster => 'video_look_up.jpg') %>
+<div class="row web-videos-container">
+	<div class="col-md-6">
+		<%= video_tag(["https://igcdn-videos-f-8-a.akamaihd.net/hphotos-ak-xaf1/t50.2886-16/10814845_1579793458935308_557263697_n.mp4"], 
+			:id => "video-1", 
+			:controls => false, 
+			:poster => 'video_look_up.jpg',
+			:class => 'web-video',
+			:onlick => '') %>
 	</div>
-	<div>
-		<%= video_tag(["https://igcdn-videos-b-1-a.akamaihd.net/hphotos-ak-xfa1/t50.2886-16/11020967_945598028791221_948759170_n.mp4"], :size => "300x300", :controls => true, :poster => 'video_some_color.jpg') %>
+	<div class="col-md-6">
+		<%= video_tag(["https://igcdn-videos-b-1-a.akamaihd.net/hphotos-ak-xfa1/t50.2886-16/11020967_945598028791221_948759170_n.mp4"], 
+			:id => "video-2", 
+			:controls => false, 
+			:poster => 'video_some_color.jpg',
+			:class => 'web-video') %>
 	</div>
-	<div class="clear"></div>
 </div>
 
-<div class="web-video-player-row web-video-player-row-small">
-	<div>
-		<%= video_tag(["https://igcdn-videos-d-10-a.akamaihd.net/hphotos-ak-xaf1/t50.2886-16/11019604_941691085843750_205891334_n.mp4"], :size => "140x140", :controls => true, :poster => 'video_too_delicious.jpg') %>
-		<%= video_tag(["https://igcdn-videos-d-10-a.akamaihd.net/hphotos-ak-xaf1/t50.2886-16/11019604_941691085843750_205891334_n.mp4"], :size => "140x140", :controls => true, :poster => 'video_too_delicious.jpg') %>
+<div class="row web-videos-controls-container">
+	<div style="margin-top: -275px;">
+		<div class="col-md-6">
+			<div class="web-round-controller" id="video-1-controller" onclick="toggleVideo(1);">
+				<%= image_tag('play_btn.png') %>	
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="web-round-controller" id="video-2-controller" onclick="toggleVideo(2);">
+				<%= image_tag('play_btn.png') %>	
+			</div>
+		</div>
 	</div>
-	<div>
-		<%= video_tag(["https://igcdn-videos-d-10-a.akamaihd.net/hphotos-ak-xaf1/t50.2886-16/11019604_941691085843750_205891334_n.mp4"], :size => "140x140", :controls => true, :poster => 'video_too_delicious.jpg') %>
-		<%= video_tag(["https://igcdn-videos-d-10-a.akamaihd.net/hphotos-ak-xaf1/t50.2886-16/11019604_941691085843750_205891334_n.mp4"], :size => "140x140", :controls => true, :poster => 'video_too_delicious.jpg') %>
-	</div>
-	<div class="clear"></div>
 </div>
+
+<div class="row web-videos-container">
+	<div class="col-md-6">
+		<%= video_tag(["https://igcdn-videos-d-10-a.akamaihd.net/hphotos-ak-xaf1/t50.2886-16/11019604_941691085843750_205891334_n.mp4"], 
+			:id => "video-3", 
+			:controls => false, 
+			:poster => 'video_too_delicious.jpg',
+			:class => 'web-video') %>
+	</div>
+	<div class="col-md-6">
+		<%= video_tag(["https://igcdn-videos-d-10-a.akamaihd.net/hphotos-ak-xaf1/t50.2886-16/11019604_941691085843750_205891334_n.mp4"], 
+			:id => "video-4", 
+			:controls => false, 
+			:poster => 'video_too_delicious.jpg',
+			:class => 'web-video') %>
+	</div>
+</div>
+
+<div class="row web-videos-controls-container">
+	<div style="margin-top: -275px;">
+		<div class="col-md-6">
+			<div class="web-round-controller" id="video-3-controller" onclick="toggleVideo(3);">
+				<%= image_tag('play_btn.png') %>	
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="web-round-controller" id="video-4-controller" onclick="toggleVideo(4);">
+				<%= image_tag('play_btn.png') %>	
+			</div>
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript">
+
+	function toggleVideo(videoID) {
+		var video = $('#video-'+videoID)[0];
+		var controller = $('#video-'+videoID+'-controller');
+		
+		$('.web-video').each(function(){
+			$(this)[0].pause();
+		})
+		
+		$('.web-round-controller').each(function(v){
+			$(this).fadeIn(200);
+		})
+		
+		controller.fadeOut(200);
+		video.play();
+	    
+	    video.onended = function(e) {
+			controller.fadeIn(200);
+	    }
+		
+	}
+	
+	$('video').click(function(){
+		$(this)[0].pause();
+		$('#'+this.id+'-controller').fadeIn(200);
+	})
+	
+
+</script>

@@ -23,12 +23,12 @@
 </div>
 
 <script>
-  //$(document).ready(function() {  
-  		 $("#mobile-phone-carousel").swiperight(function() {  
-    		  $(this).carousel('prev');  
-	    		});  
-		   $("#mobile-phone-carousel").swipeleft(function() {  
-		     $(this).carousel('next');  
-	   });  
-	//});  
+	$("#mobile-phone-carousel").swiperight(function() {  
+    	$(this).carousel('prev');  
+    	$(this).carousel('pause');
+	});  
+	$("#mobile-phone-carousel").swipeleft(function() {  
+		$(this).carousel('next');  
+		$(this).carousel('pause');
+	});  
 </script>

@@ -73,7 +73,7 @@
 	
 	$('video').click(function(){
 		$(this)[0].pause();
-		$('#'+this.id+'-controller').fadeIn(200);
+		$('#'+this.id+'-controller').css('-webkit-transform-style','preserve-3d');//fadeIn(200);
 	})
 	
 

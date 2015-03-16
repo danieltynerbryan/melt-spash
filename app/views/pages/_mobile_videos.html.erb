@@ -2,20 +2,79 @@
 
 <div class="mobile-video-player-row">
 	<div>
-		<%= video_tag(["https://igcdn-videos-d-10-a.akamaihd.net/hphotos-ak-xaf1/t50.2886-16/11019604_941691085843750_205891334_n.mp4"], :size => "400x400", :controls => true, :poster => 'video_too_delicious.jpg') %>
+		<%= video_tag(["https://igcdn-videos-d-10-a.akamaihd.net/hphotos-ak-xaf1/t50.2886-16/11019604_941691085843750_205891334_n.mp4"], 
+			:size => "400x400", 
+			:controls => false, 
+			:poster => 'video_too_delicious.jpg',
+			:id => 'too-delicious') %>
+		<div class="web-round-controller" id="video-1-controller" style="margin-top: -310px; margin-right: 55px; -webkit-transform-style: preserve-3d" onclick="toggleVideo(1,'too-delicious');">
+			<%= image_tag('play_btn.png') %>	
+		</div>
 	</div>
 	<div>
-		<%= video_tag(["https://igcdn-videos-f-8-a.akamaihd.net/hphotos-ak-xaf1/t50.2886-16/10814845_1579793458935308_557263697_n.mp4"], :size => "400x400", :controls => true, :poster => 'video_look_up.jpg') %>
+		<%= video_tag(["https://igcdn-videos-f-8-a.akamaihd.net/hphotos-ak-xaf1/t50.2886-16/10814845_1579793458935308_557263697_n.mp4"], 
+			:size => "400x400", 
+			:controls => false, 
+			:poster => 'video_look_up.jpg',
+			:id => 'look-up') %>
+		<div class="web-round-controller" id="video-2-controller" style="margin-top: -310px; margin-right: 55px; -webkit-transform-style: preserve-3d" onclick="toggleVideo(2,'look-up');">
+			<%= image_tag('play_btn.png') %>	
+		</div>
 	</div>
 	<div class="clear"></div>
 </div>
 
 <div class="mobile-video-player-row">
 	<div>
-		<%= video_tag(["https://igcdn-videos-b-1-a.akamaihd.net/hphotos-ak-xfa1/t50.2886-16/11020967_945598028791221_948759170_n.mp4"], :size => "400x400", :controls => true, :poster => 'video_some_color.jpg') %>
+		<%= video_tag(["https://igcdn-videos-b-1-a.akamaihd.net/hphotos-ak-xfa1/t50.2886-16/11020967_945598028791221_948759170_n.mp4"], 
+			:size => "400x400", 
+			:controls => false, 
+			:poster => 'video_some_color.jpg',
+			:id => 'some-color') %>
+		<div class="web-round-controller" id="video-3-controller" style="margin-top: -310px; margin-right: 55px; -webkit-transform-style: preserve-3d" onclick="toggleVideo(3,'some-color');">
+			<%= image_tag('play_btn.png') %>	
+		</div>
 	</div>
 	<div>
-		<%= video_tag(["https://igcdn-videos-b-1-a.akamaihd.net/hphotos-ak-xfa1/t50.2886-16/11020967_945598028791221_948759170_n.mp4"], :size => "400x400", :controls => true, :poster => 'video_some_color.jpg') %>
+		<%= video_tag(["https://igcdn-videos-b-1-a.akamaihd.net/hphotos-ak-xfa1/t50.2886-16/11020967_945598028791221_948759170_n.mp4"], 
+			:size => "400x400", 
+			:controls => false, 
+			:poster => 'video_some_color.jpg',
+			:id => 'some-color-2') %>
+		<div class="web-round-controller" id="video-4-controller" style="margin-top: -310px; margin-right: 55px; -webkit-transform-style: preserve-3d" onclick="toggleVideo(3,'some-color-2');">
+			<%= image_tag('play_btn.png') %>	
+		</div>
 	</div>
 	<div class="clear"></div>
 </div>
+
+<script type="text/javascript">
+
+	function toggleVideo(videoID, srcID) {
+		var video = $('#'+srcID)[0];
+		var controller = $('#video-'+videoID+'-controller');
+		
+		$('.web-video').each(function(){
+			$(this)[0].pause();
+		})
+		
+		$('.web-round-controller').each(function(v){
+			$(this).fadeIn(200);
+		})
+		
+		controller.fadeOut(200);
+		video.play();
+	    
+	    video.onended = function(e) {
+			controller.fadeIn(200);
+	    }
+		
+	}
+	
+	$('video').click(function(){
+		$(this)[0].pause();
+		$('#'+this.id+'-controller').fadeIn(200);
+	})
+	
+
+</script>

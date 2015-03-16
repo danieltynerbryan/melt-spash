@@ -4,7 +4,7 @@
 
 <div class="mobile-melt-phone-screen-container">
 	<%= image_tag('status_bar.png', class: 'mobile-status-bar') %>
-	<div id="carousel-example-generic" class="carousel slide" data-ride="carousel" data-interval="3000">
+	<div id="mobile-phone-carousel" class="carousel slide" data-ride="carousel" data-interval="3000">
 		<div class="carousel-inner" role="listbox">
 			<div class="item active">
 				<%= image_tag('screen_1.jpg', class: 'mobile-melt-phone-screen') %>
@@ -21,3 +21,14 @@
 		</div>
 	</div>
 </div>
+
+<script>
+  //$(document).ready(function() {  
+  		 $("#mobile-phone-carousel").swiperight(function() {  
+    		  $(this).carousel('prev');  
+	    		});  
+		   $("#mobile-phone-carousel").swipeleft(function() {  
+		     $(this).carousel('next');  
+	   });  
+	//});  
+</script>

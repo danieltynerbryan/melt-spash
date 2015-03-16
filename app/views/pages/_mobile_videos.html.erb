@@ -6,8 +6,9 @@
 			:size => "400x400", 
 			:controls => false, 
 			:poster => 'video_too_delicious.jpg',
-			:id => 'too-delicious') %>
-		<div class="web-round-controller" id="too-delicious-controller" style="margin-top: -310px; margin-right: 55px; -webkit-transform-style: preserve-3d" onclick="toggleVideo('too-delicious');">
+			:id => 'too-delicious',
+			:class => 'mobile-video') %>
+		<div class="web-round-controller" id="too-delicious-controller" onclick="toggleMobileVideo('too-delicious');">
 			<%= image_tag('play_btn.png') %>	
 		</div>
 	</div>
@@ -16,8 +17,9 @@
 			:size => "400x400", 
 			:controls => false, 
 			:poster => 'video_look_up.jpg',
-			:id => 'look-up') %>
-		<div class="web-round-controller" id="look-up-controller" style="margin-top: -310px; margin-right: 55px; -webkit-transform-style: preserve-3d" onclick="toggleVideo('look-up');">
+			:id => 'look-up',
+			:class => 'mobile-video') %>
+		<div class="web-round-controller" id="look-up-controller" onclick="toggleMobileVideo('look-up');">
 			<%= image_tag('play_btn.png') %>	
 		</div>
 	</div>
@@ -30,8 +32,9 @@
 			:size => "400x400", 
 			:controls => false, 
 			:poster => 'video_some_color.jpg',
-			:id => 'some-color') %>
-		<div class="web-round-controller" id="some-color-controller" style="margin-top: -310px; margin-right: 55px; -webkit-transform-style: preserve-3d" onclick="toggleVideo('some-color');">
+			:id => 'some-color',
+			:class => 'mobile-video') %>
+		<div class="web-round-controller" id="some-color-controller" onclick="toggleMobileVideo('some-color');">
 			<%= image_tag('play_btn.png') %>	
 		</div>
 	</div>
@@ -40,8 +43,9 @@
 			:size => "400x400", 
 			:controls => false, 
 			:poster => 'video_some_color.jpg',
-			:id => 'some-color-2') %>
-		<div class="web-round-controller" id="some-color-2-controller" style="margin-top: -310px; margin-right: 55px; -webkit-transform-style: preserve-3d" onclick="toggleVideo('some-color-2');">
+			:id => 'some-color-2',
+			:class => 'mobile-video') %>
+		<div class="web-round-controller" id="some-color-2-controller" onclick="toggleMobileVideo('some-color-2');">
 			<%= image_tag('play_btn.png') %>	
 		</div>
 	</div>
@@ -50,11 +54,11 @@
 
 <script type="text/javascript">
 
-	function toggleVideo(srcID) {
+	function toggleMobileVideo(srcID) {
 		var video = $('#'+srcID)[0];
 		var controller = $('#'+srcID+'-controller');
 		
-		$('video').each(function(){
+		$('.mobile-video').each(function(){
 			$(this)[0].pause();
 		})
 		
@@ -75,7 +79,7 @@
 		
 	}
 	
-	$('video').click(function(){
+	$('.mobile-video').click(function(){
 		$(this)[0].pause();
 		$('#'+this.id+'-controller').css('-webkit-transform-style','preserve-3d');//fadeIn(200);
 	})
